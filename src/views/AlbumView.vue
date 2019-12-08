@@ -1,14 +1,18 @@
 <template>
   <div class="AlbumInformation">
     <div class="Title">{{ albumInformation.title }}</div>
-    <User v-bind:userId="userInformation.id" v-bind:userName="userInformation.name" />
+    <ReturnToUser
+      v-bind:userId="userInformation.id"
+      v-bind:userName="userInformation.name"
+      v-bind:returnToAuthor="true"
+    />
     <Photos v-bind:photoList="albumPhotos" />
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import User from "../components/User";
+import ReturnToUser from "../components/ReturnToUser";
 import Photos from "../components/Photos";
 
 export default {
@@ -23,7 +27,7 @@ export default {
   },
 
   components: {
-    User,
+    ReturnToUser,
     Photos
   },
 
@@ -70,6 +74,9 @@ export default {
 
 <style scoped>
 .Title {
-  color: red;
+  position: relative;
+  left: 30px;
+  font-size: 250%;
+  font-weight: 800;
 }
 </style>

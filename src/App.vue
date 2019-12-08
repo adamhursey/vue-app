@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link id="userLink" to="/">Search By User</router-link>
-      <router-link id="albumLink" to="/albums">Search By Album</router-link>
+      <router-link id="userLink" to="/">List of Users</router-link>
+      <router-link id="albumLink" to="/albums">List of Albums</router-link>
     </div>
     <router-view />
   </div>
