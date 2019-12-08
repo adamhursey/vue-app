@@ -1,6 +1,6 @@
 <template>
   <div class="user">
-    <p>{{ userId }} {{ userName }}</p>
+    <button id="userStyle" v-on:click="alertMe">{{ userName }}</button>
   </div>
 </template>
 
@@ -10,24 +10,35 @@ export default {
   props: {
     userId: Number,
     userName: String
+  },
+  methods: {
+    alertMe: function() {
+      alert(this.userId);
+    }
   }
 };
 </script>
 
 <!-- Added "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
+#userStyle {
   display: inline-block;
-  margin: 0 10px;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #ffffff;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #000000;
+  text-align: center;
+  transition: all 0.15s;
+  background-color: #ffffff;
+  font-size: 150%;
 }
-a {
-  color: #42b983;
+#userStyle:hover {
+  color: #50ffb1;
+  background-color: #7fa597;
 }
 </style>
