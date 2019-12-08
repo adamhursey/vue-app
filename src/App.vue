@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Users</router-link> |
-      <router-link to="/about">Albums</router-link>
+      <router-link id="userLink" to="/">Users</router-link>
+      <router-link id="albumLink" to="/albums">Albums</router-link>
     </div>
     <router-view />
   </div>
@@ -13,8 +13,15 @@
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+}
+
+#userLink {
+  margin: 5px;
+}
+
+#albumLink {
+  margin: 5px;
 }
 
 #nav {

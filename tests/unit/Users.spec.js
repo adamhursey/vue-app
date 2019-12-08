@@ -1,12 +1,10 @@
 import { shallowMount } from "@vue/test-utils";
 import Users from "@/views/Users";
 
-describe("UserView", () => {
-  it("renders the component", () => {
-    // arrange
+describe("UserView User Render ", () => {
+  it("renders the User component", () => {
     const wrapper = shallowMount(Users);
 
-    // assert
     expect(wrapper.html()).toMatchSnapshot();
   });
 });
