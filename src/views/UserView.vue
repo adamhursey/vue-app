@@ -1,16 +1,21 @@
 <template>
   <div>
-    <div class="name">name: {{ userInformation.name }}</div>
-    <div class="userName">username: {{ userInformation.username }}</div>
-    <div class="phone">phone: {{ userInformation.phone }}</div>
-    <div class="email">email: {{ userInformation.email }}</div>
-    <div class="ad">address: {{ this.addressString }}</div>
-    <div class="albums">albums: {{ userAlbums }}</div>
+    <div class="userContainer">
+      <div class="name">{{ userInformation.name }}</div>
+      <div class="userName">username: {{ userInformation.username }}</div>
+      <div class="phone">{{ userInformation.phone }}</div>
+      <div class="email">{{ userInformation.email }}</div>
+      <div class="address">address: {{ this.addressString }}</div>
+    </div>
+    <div class="albumsContainer" v-for="(album, index) in userAlbums" :key="index">
+      <Album v-bind:albumId="album.id" v-bind:albumTitle="album.title" />
+    </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import Album from "../components/Album";
 
 export default {
   name: "Users",
@@ -21,6 +26,10 @@ export default {
       userAlbums: {},
       addressString: ""
     };
+  },
+
+  components: {
+    Album
   },
 
   // Fetches all Users from API for user list
@@ -53,3 +62,39 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.userContainer {
+  position: relative;
+  height: 10vh;
+  margin-bottom: 20px;
+}
+
+.name {
+  position: absolute;
+  font-size: 200%;
+  top: 0;
+  left: 0;
+}
+.phone {
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+.email {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.userName {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.address {
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+</style>
