@@ -36,7 +36,6 @@ export default {
   created() {
     const id = this.$route.params.id;
 
-    console.log("created");
     try {
       axios
         .get(`https://jsonplaceholder.typicode.com/users/${id}`)

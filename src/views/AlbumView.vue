@@ -1,14 +1,15 @@
 <template>
   <div class="AlbumInformation">
-    <div>Album Title: {{ albumInformation.title }}</div>
+    <div class="Title">{{ albumInformation.title }}</div>
     <User v-bind:userId="userInformation.id" v-bind:userName="userInformation.name" />
-    <div>Photos: {{ albumPhotos }}</div>
+    <Photos v-bind:photoList="albumPhotos" />
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import User from "../components/User";
+import Photos from "../components/Photos";
 
 export default {
   name: "Albums",
@@ -22,7 +23,8 @@ export default {
   },
 
   components: {
-    User
+    User,
+    Photos
   },
 
   // Gets route params so that we can hit the API with that information later
@@ -35,7 +37,6 @@ export default {
         .get(`https://jsonplaceholder.typicode.com/albums/${id}`)
         .then(response => {
           this.albumInformation = response.data;
-          console.log(this.albumInformation);
           try {
             axios
               .get(
@@ -43,7 +44,6 @@ export default {
               )
               .then(response => {
                 this.userInformation = response.data;
-                console.log(this.userInformation.name);
               });
           } catch (e) {
             console.log("Could not fetch User", e);
@@ -67,3 +67,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.Title {
+  color: red;
+}
+</style>
