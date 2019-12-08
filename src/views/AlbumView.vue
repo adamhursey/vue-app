@@ -1,35 +1,63 @@
 <template>
-  <div>album view</div>
+  <div class="AlbumInformation">
+    <div>Album Title: {{ albumInformation.title }}</div>
+    <div>Created By: {{ userInformation.name }}</div>
+    <div>Photos: {{ albumPhotos }}</div>
+  </div>
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 
 export default {
   name: "Albums",
 
   data() {
     return {
-      albumsList: []
+      albumInformation: {},
+      albumPhotos: {},
+      userInformation: {}
     };
   },
 
   // Gets route params so that we can hit the API with that information later
   created() {
-    console.log(this.$route.params);
-  }
+    const id = this.$route.params.id;
 
-  // Fetches all Albums from API for album list
-  // created() {
-  //   try {
-  //     axios
-  //       .get("https://jsonplaceholder.typicode.com/albums/")
-  //       .then(response => {
-  //         this.albumsList = response.data;
-  //       });
-  //   } catch (e) {
-  //     console.log("Could not fetch Users", e);
-  //   }
-  // }
+    // Fetches all Albums from API for album list
+    try {
+      axios
+        .get(`https://jsonplaceholder.typicode.com/albums/${id}`)
+        .then(response => {
+          this.albumInformation = response.data;
+          console.log(this.albumInformation);
+          try {
+            axios
+              .get(
+                `https://jsonplaceholder.typicode.com/users/${this.albumInformation.userId}`
+              )
+              .then(response => {
+                this.userInformation = response.data;
+              });
+          } catch (e) {
+            console.log("Could not fetch User", e);
+          }
+        });
+    } catch (e) {
+      console.log("Could not fetch Album", e);
+    }
+    try {
+      axios
+        .get(
+          `https://jsonplaceholder.typicode.com/albums/1/photos?albumId=${id}`
+        )
+        .then(response => {
+          this.albumPhotos = response.data;
+          console.log(this.albumPhotos);
+        });
+    } catch (e) {
+      console.log("Could not fetch photos", e);
+    }
+  }
 };
 </script>

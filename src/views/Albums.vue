@@ -32,7 +32,7 @@ export default {
           this.albumsList = response.data;
         });
     } catch (e) {
-      console.log("Could not fetch Users", e);
+      console.log("Could not fetch Albums", e);
     }
   }
 };

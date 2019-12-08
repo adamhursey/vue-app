@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="name">name: {{userInformation.name}}</div>
-    <div class="userName">username: {{userInformation.username}}</div>
-    <div class="phone">phone: {{userInformation.phone}}</div>
-    <div class="email">email: {{userInformation.email}}</div>
-    <div class="ad">address: {{this.addressString}}</div>
-    <div class="albums">albums: {{userAlbums}}</div>
+    <div class="name">name: {{ userInformation.name }}</div>
+    <div class="userName">username: {{ userInformation.username }}</div>
+    <div class="phone">phone: {{ userInformation.phone }}</div>
+    <div class="email">email: {{ userInformation.email }}</div>
+    <div class="ad">address: {{ this.addressString }}</div>
+    <div class="albums">albums: {{ userAlbums }}</div>
   </div>
 </template>
 
@@ -48,7 +48,7 @@ export default {
           this.userAlbums = response.data;
         });
     } catch (e) {
-      console.log("Could not fetch Users", e);
+      console.log("Could not fetch Albums", e);
     }
   }
 };
