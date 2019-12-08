@@ -1,6 +1,6 @@
 <template>
   <div class="user">
-    <button id="userStyle" v-on:click="alertMe">{{ userName }}</button>
+    <button id="userStyle" v-on:click="pushToUser">{{ userName }}</button>
   </div>
 </template>
 
@@ -11,9 +11,10 @@ export default {
     userId: Number,
     userName: String
   },
+
   methods: {
-    alertMe: function() {
-      alert(this.userId);
+    pushToUser: function() {
+      this.$router.push({ path: `/user/${this.userId}` });
     }
   }
 };

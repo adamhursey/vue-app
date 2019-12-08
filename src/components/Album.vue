@@ -1,6 +1,6 @@
 <template>
   <div class="album">
-    <button id="albumStyle" v-on:click="alertMe">{{ albumTitle }}</button>
+    <button id="albumStyle" v-on:click="pushToAlbum">{{ albumTitle }}</button>
   </div>
 </template>
 
@@ -11,9 +11,10 @@ export default {
     albumId: Number,
     albumTitle: String
   },
+
   methods: {
-    alertMe: function() {
-      alert(this.albumId);
+    pushToAlbum: function() {
+      this.$router.push({ path: `/album/${this.albumId}` });
     }
   }
 };
