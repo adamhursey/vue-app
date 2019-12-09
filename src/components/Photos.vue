@@ -1,6 +1,6 @@
 <template>
   <div class="photos">
-    <div class="photo-grid" v-for="(photo) in photoList" :key="photo.id">
+    <div class="photo-grid" v-for="photo in photoList" :key="photo.id">
       <Photo
         v-bind:id="photo.id"
         v-bind:url="photo.url"

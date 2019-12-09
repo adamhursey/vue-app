@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- eslint-disable-next-line -->
     <img class="photo" v-on:click="pushToFull" v-bind:src="thumbnailUrl" v-bind:alt="name" />
   </div>
 </template>
