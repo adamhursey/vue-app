@@ -42,7 +42,6 @@ export default {
         .then(response => {
           this.userInformation = response.data;
           this.addressString = `${this.userInformation.address.street}, ${this.userInformation.address.suite}, ${this.userInformation.address.city}, ${this.userInformation.address.zipcode}`;
-          console.log(this.userInformation);
         });
     } catch (e) {
       console.log("Could not fetch Users", e);

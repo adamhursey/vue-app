@@ -22,19 +22,6 @@ export default {
 
   components: {
     Photo
-  },
-
-  methods: {
-    pushToUser: function() {
-      this.$router.push({ path: `/user/${this.userId}` });
-    },
-    pushToFullSize: function() {
-      // this.$router.push({ path: path });
-      console.log(this.photo.id);
-    },
-    alert: function() {
-      alert();
-    }
   }
 };
 </script>

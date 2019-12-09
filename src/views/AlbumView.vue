@@ -63,7 +63,6 @@ export default {
         )
         .then(response => {
           this.albumPhotos = response.data;
-          console.log(this.albumPhotos);
         });
     } catch (e) {
       console.log("Could not fetch photos", e);
