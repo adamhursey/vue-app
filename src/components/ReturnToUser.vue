@@ -39,10 +39,12 @@ export default {
   text-align: center;
   transition: all 0.15s;
   background-color: #ffffff;
+  text-decoration: underline;
   font-size: 150%;
 }
 #userStyle:hover {
   color: #50ffb1;
+  text-decoration: none;
   background-color: #7fa597;
 }
 #albumCreate {
